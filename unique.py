@@ -1,7 +1,13 @@
-uniq_lines = set(open('large_combined.txt').readlines())
+u_list = []
 
-new_file = open('large_directories.txt', "w").writelines(uniq_lines)
+with open('medium.txt') as f:
+    items = f.readlines()
+    
+    for item in items:
+        if item not in u_list:
+            u_list.append(item)
 
-new_file.close()
-
-
+with open('large_final.txt', 'w') as file:
+    for i in u_list:
+        file.write(i)
+    
